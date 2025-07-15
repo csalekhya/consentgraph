@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Score candidate identity merges and enforce consent before a graph edge can be created.">
+  <title>Consent Graph · Working Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#results">Skip to results</a>
+  <header class="masthead"><a class="brand" href="https://github.com/csalekhya/consentgraph">Consent Graph</a><span class="build-state"><i></i> live computation</span></header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">Consent-aware identity resolution</p>
+      <h1>Run the decision,<br><em>inspect the evidence.</em></h1>
+      <p class="lede">Score candidate identity merges and enforce consent before a graph edge can be created.</p>
+    </section>
+    <section class="workspace" aria-label="Interactive project workspace">
+      <form id="workspace-form" class="control-panel">
+        <div class="panel-heading"><span>01</span><div><p>Inputs</p><h2>Configure the run</h2></div></div>
+        <div class="fields"><label class="field" for="records"><span>Identity records as JSON</span><textarea id="records" name="records" rows="12">[{&quot;id&quot;:&quot;crm-1&quot;,&quot;name&quot;:&quot;Tessa Lindgren&quot;,&quot;email&quot;:&quot;tessa@example.com&quot;},{&quot;id&quot;:&quot;web-9&quot;,&quot;name&quot;:&quot;Tessa Lindgren&quot;,&quot;email&quot;:&quot;tessa@example.com&quot;},{&quot;id&quot;:&quot;crm-2&quot;,&quot;name&quot;:&quot;T Lindgren&quot;,&quot;email&quot;:&quot;other@example.com&quot;}]</textarea></label>
+<label class="field" for="threshold"><span>Similarity threshold</span><input id="threshold" name="threshold" type="number" value="0.8" min="0" max="1" step="any" data-suggested-step="0.01"></label>
+<label class="field" for="purpose"><span>Processing purpose</span><select id="purpose" name="purpose"><option selected>email_marketing</option><option>ad_platform_match</option><option>service</option></select></label>
+<div class="field field-checkbox"><label class="switch"><input id="marketingConsent" name="marketingConsent" type="checkbox"><span>Marketing consent granted</span></label></div></div>
+        <div class="actions"><button class="run" type="submit">Run analysis <span>→</span></button><button id="reset-button" class="reset" type="button">Reset</button></div>
+      </form>
+      <section id="results" class="result-panel" aria-live="polite" aria-busy="true">
+        <div class="panel-heading"><span>02</span><div><p>Output</p><h2>Decision trace</h2></div></div>
+        <div id="result-content" class="result-content"><div class="loading">Computing initial scenario…</div></div>
+      </section>
+    </section>
+  </main>
+  <footer><p>Built from the tested logic in <a href="https://github.com/csalekhya/consentgraph">csalekhya/consentgraph</a>.</p></footer>
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>
